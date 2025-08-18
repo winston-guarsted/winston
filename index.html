@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp号码处理工具</title>
+    <title>WhatsApp号码处理工具（网页版）</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
@@ -46,7 +46,7 @@
             </div>
             <div class="hidden md:flex items-center space-x-4">
                 <span class="text-gray-600" id="status-indicator">
-                    <i class="fa fa-info-circle mr-1"></i>准备就绪
+                    <i class="fa fa-info-circle mr-1"></i>准备就绪（网页版）
                 </span>
             </div>
         </div>
@@ -71,7 +71,7 @@
                     </li>
                     <li class="flex items-start">
                         <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
-                        <span>系统会将号码填入链接并自动打开：<code class="bg-gray-100 px-2 py-1 rounded text-sm">https://api.whatsapp.com/send?phone=+{号码}&text=Favor%20contactarme</code></span>
+                        <span>系统会将号码填入链接并自动打开网页版：<code class="bg-gray-100 px-2 py-1 rounded text-sm">https://web.whatsapp.com/send?phone=+{号码}&text=Favor%20contactarme</code></span>
                     </li>
                     <li class="flex items-start">
                         <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
@@ -165,7 +165,7 @@
             updateStatus();
         }
         
-        // 处理第一个号码
+        // 处理第一个号码（核心修改：使用web.whatsapp.com域名）
         function processFirstNumber() {
             // 从文本区域获取号码列表
             const input = numberListEl.value.trim();
@@ -195,8 +195,8 @@
             // 获取第一个号码
             const firstNumber = numbers[0];
             
-            // 构建链接
-            const url = `https://api.whatsapp.com/send?phone=+${firstNumber}&text=Favor%20contactarme`;
+            // 关键修改：使用web.whatsapp.com强制打开网页版
+            const url = `https://web.whatsapp.com/send?phone=+${firstNumber}&text=Favor%20contactarme`;
             
             // 打开链接
             window.open(url, '_blank');
@@ -237,7 +237,7 @@
             } else if (initialCount > 0 && remaining === 0) {
                 statusIndicator.innerHTML = `<i class="fa fa-check-circle mr-1 text-primary"></i>全部处理完成`;
             } else {
-                statusIndicator.innerHTML = '<i class="fa fa-info-circle mr-1"></i>准备就绪';
+                statusIndicator.innerHTML = '<i class="fa fa-info-circle mr-1"></i>准备就绪（网页版）';
             }
         }
         
